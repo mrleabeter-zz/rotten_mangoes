@@ -20,6 +20,11 @@ class Movie < ActiveRecord::Base
   validates :release_date,
     presence: true
 
+  def review_average
+    return "N/A" if reviews.empty?
+    reviews.sum(:rating_out_of_ten)/reviews.size
+  end
+
 # # How can I review a movie that releases in the future?  If I have a time machine, I'm definitely going to use it for better things than reviewing movies.
 #   validate :release_date_is_in_the_future
 
