@@ -1,7 +1,12 @@
 source 'https://rubygems.org'
 
+# Use pry for debugging
 gem 'pry'
+
+# Use rmagick for image manipulation
 gem 'rmagick'
+
+# Use carrierwave for adding images to db 
 gem 'carrierwave'
 
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
@@ -34,6 +39,10 @@ gem 'jbuilder', '~> 1.2'
 group :doc do
   # bundle exec rake doc:rails generates the API under doc/api.
   gem 'sdoc', require: false
+end
+
+group :development do
+  gem 'web-console', '~> 2.0'
 end
 
 # Use ActiveModel has_secure_password
