@@ -1,0 +1,22 @@
+<h1>User Details</h1>
+
+<h3><%= @user.full_name %>: <small><%= link_to "edit user", edit_admin_user_path %></small></h3>
+<p>
+  <strong>User #:</strong> <%= @user.id %><br>
+  <strong>Email:</strong> <%= @user.email %><br>
+</p>
+<p>
+  <strong>Number of reviews:</strong> <%= @user.reviews.count %><br>
+  <strong>Average Rating:</strong> <%= @user.reviews.average(:rating_out_of_ten).round(2) %><br>
+  <strong>Last review written:</strong> <%= @user.reviews.last.updated_at %><br>
+</p>
+<p>
+  <strong>Profile created on:</strong> <%= @user.created_at %><br>
+  <strong>Profile updated on:</strong> <%= @user.updated_at %><br>
+  <strong>Admin Status:</strong> User is <% if @user.admin %>not<% end %> an admin.
+</p>
+
+
+
+<%= link_to "Back to all users", admin_users_path %><br/>
+<%= link_to "delete user", admin_user_path(@user), :method => :delete, :"data-confirm" => "You sure you want to delet this user?" %>

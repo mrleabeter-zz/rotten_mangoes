@@ -9,6 +9,9 @@ gem 'rmagick'
 # Use carrierwave for adding images to db 
 gem 'carrierwave'
 
+# Use Kaminari for pagination
+gem 'kaminari'
+
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.0.0'
 

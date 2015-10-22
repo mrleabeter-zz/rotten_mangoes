@@ -3,7 +3,7 @@ class Admin::UsersController < ApplicationController
   before_action :user_admin_only
 
   def index
-    @users = User.all
+    @users = User.all.page(params[:page])
   end
 
   def show

@@ -1,2 +1,25 @@
 <h1>Admin User Management</h1>
+  <h3>Users:</h3>
+  <%= paginate @users %>
+<table style="width:35%">
+  <thead>
+    <tr>
+      <th>Firstname</th>
+      <th>Lastname</th>   
+      <th>Email</th>
+      <th>Admin</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @users.each do |user| %>
+    <tr>
+      <td><%= user.firstname %></td>
+      <td><%= user.lastname %></td>
+      <td><%= user.email %></td>
+      <td><% if user.admin %>*<% end %></td>
+      <td><%= link_to "user details", admin_user_path(user) %></td>
+    </tr>
+  </tbody>
+  <% end %>
+</table>
 <%= link_to "Back to all movies", movies_path %><br/>
