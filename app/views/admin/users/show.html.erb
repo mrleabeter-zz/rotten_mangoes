@@ -5,10 +5,20 @@
   <strong>User #:</strong> <%= @user.id %><br>
   <strong>Email:</strong> <%= @user.email %><br>
 </p>
-<p>
+<p> 
   <strong>Number of reviews:</strong> <%= @user.reviews.count %><br>
-  <strong>Average Rating:</strong> <%= @user.reviews.average(:rating_out_of_ten).round(2) %><br>
-  <strong>Last review written:</strong> <%= @user.reviews.last.updated_at %><br>
+  <strong>Average Rating: </strong>
+    <% if @user.reviews.empty? %>
+      N/A<br>
+    <% else %>
+      <%= @user.reviews.average(:rating_out_of_ten).round(2) %><br>
+    <% end %> 
+  <strong>Last review written: </strong>
+    <% if @user.reviews.empty? %>
+      N/A<br>
+    <% else %>
+      <%= @user.reviews.last.updated_at %><br>
+    <% end %> 
 </p>
 <p>
   <strong>Profile created on:</strong> <%= @user.created_at %><br>
